@@ -27,7 +27,11 @@ class TestSQLWindowFunctions(unittest.TestCase):
         sql = seed.read()
         cursor.execute(sql)
 
-        result = [('New York', Decimal('45.7142857142857143')), ('London', Decimal('67.5000000000000000')), ('Brooklyn', Decimal('81.6666666666666667')), ('Houston', Decimal('28.7500000000000000')), ('Washington', Decimal('26.6666666666666667'))]
+        result = [('Washington', Decimal('26.6666666666666667')),
+        ('London', Decimal('67.5000000000000000')),
+        ('Houston', Decimal('28.7500000000000000')),
+        ('Brooklyn', Decimal('81.6666666666666667')),
+        ('New York', Decimal('45.7142857142857143'))]
 
         cursor.execute(select_distinct_location_and_avg_amount_partitioned_by_location())
         test = cursor.fetchall()
